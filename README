@@ -1,0 +1,6 @@
+初始化数据库
+python manage.py db init
+python manage.py db migrate
+python manage.py db upgrade
+
+运行Install中的procedure.py 向数据库加入存储过程
