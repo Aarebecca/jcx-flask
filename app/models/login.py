@@ -7,7 +7,7 @@ class Login(db.Model):
     # 操作编号
     id = db.Column(db.Integer, nullable=False, primary_key=True, index=True, unique=True, autoincrement=True)
     # 账号
-    uid = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    uid = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
     # 时间
     time = db.Column(db.DateTime)
     # IP

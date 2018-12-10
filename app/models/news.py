@@ -8,7 +8,7 @@ class News(db.Model):
     # 标题
     title = db.Column(db.String(64), nullable=False)
     # 发布日期
-    pub_date = db.Column(db.DateTime, nullable=False, server_default=str(datetime.now()))
+    pub_date = db.Column(db.DateTime)
     # 新闻摘要
     abstract = db.Column(db.Text)
     # 新闻内容HTML
@@ -20,9 +20,9 @@ class News(db.Model):
     # 访问控制
     # 以字符串形式存储的json
     # 格式 对属权限属于于group的用户或者用户名存在users中的用户开放
-    # {"read":{"group":[],"users":[]},"edit":{"group":[],"users":[]}}
+    # {"read":{"identity":[],"users":[]},"edit":{"identity":[],"users":[]}}
     # 特别定义
-    # everyone - 对所有人可见，包括匿名用户
+    # everyone - 对所有人可见，包括匿名用户,【注：只有read属性可以分配everyone】
     # public - 对登录的所有用户
     # nobody - 对权限低于自己的人不可见，管理员等仍可查看
     authority = db.Column(db.Text)

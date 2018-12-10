@@ -1,14 +1,12 @@
 from .news import news
 from .user import users
 from .notice import notice
-from .utils import utils
 from .file import file
 
 DEFAULT_BLUEPRINT = (
     (news, '/news/'),
     (users, '/user/'),
     (notice, '/notice/'),
-    (utils, '/utils/'),
     (file, '/file/')
 )
 

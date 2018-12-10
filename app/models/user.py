@@ -13,16 +13,19 @@ class User(db.Model):
     # 密码hash
     password_hash = db.Column(db.String(128), nullable=False)
     # accesstoken 最近登录使用的accesstoken
-    access_token = db.Column(db.Text)
+    access_token = db.Column(db.Text, unique=True)
     # 最近登录时间
     latest_time = db.Column(db.DateTime)
     # 注册时间
     signin_time = db.Column(db.DateTime)
     # 用户权限
-    # {"read": ["news"], "edit": [], "upload":[], "approve":[]}
-    authority = db.Column(db.String(16), nullable=False, server_default="default")
+    # 此处的用户权限高于新闻、公告等写出的权限
+    # {"read": ["news"], "edit": [], "upload":[], "approve":[], "delete":[]}
+    authority = db.Column(db.Text)
     # 用户身份
-    identity = db.Column(db.String(16), nullable=False, server_default="default")
+    # 变更用户身份会自动更新用户权限
+    # 具体分级见 app.views.config
+    identity = db.Column(db.Integer, nullable=False, server_default="0")
 
     def __repr__(self):
         return self.nickname[:45]

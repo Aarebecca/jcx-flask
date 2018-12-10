@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
 from app.extensions import db
-from app.models import user, login
+from app.models import user, login, people
 
-from app.utils import SQL
+from app.utils import SQL,create_accesstoken
 
 users = Blueprint('users', __name__)
 

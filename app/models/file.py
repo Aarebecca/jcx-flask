@@ -12,7 +12,7 @@ class File(db.Model):
     # 上传者
     author = db.Column(db.String(256), nullable=False)
     # 上传日期
-    pub_date = db.Column(db.DateTime, nullable=False, server_default=str(datetime.now()))
+    pub_date = db.Column(db.DateTime)
     # 文件物理路径
     path = db.Column(db.Text, nullable=False)
     # 访问控制

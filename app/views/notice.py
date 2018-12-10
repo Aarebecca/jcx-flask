@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.utils import SQL
+from app.utils import SQL, check_mani
 from app.models import notice
 
 notice = Blueprint('notice', __name__)
@@ -31,12 +31,17 @@ def get_detail():
 # 否则需要等待管理员审核新闻后才可显示
 @notice.route('publish', methods=['GET', 'POST'])
 def rev_news():
-    pass
+    # 为作者分配修改、删除权限
+    accesstoken = request.form.get("accesstoken")
+    if check_mani("pub", "news", accesstoken=accesstoken) is True:
+        print("YES")
 
 
 # 修改公告
 @notice.route('edit', methods=['GET', 'POST'])
 def rev_edit():
+    accesstoken = request.form.get("accesstoken")
+    check_mani()
     pass
 
 

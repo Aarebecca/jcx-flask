@@ -8,7 +8,7 @@ class Notice(db.Model):
     # 标题
     title = db.Column(db.String(64), nullable=False)
     # 发布日期
-    pub_date = db.Column(db.DateTime, nullable=False, server_default=str(datetime.now()))
+    pub_date = db.Column(db.DateTime)
     # 公告通知标签 如new hot
     tag = db.Column(db.String(16))
     # 公告通知发布者
@@ -22,8 +22,10 @@ class Notice(db.Model):
     content = db.Column(db.Text, nullable=False)
     # 阅读量
     read = db.Column(db.Integer, nullable=False, server_default="0")
+    # 公告类别
+    type = db.Column(db.String(64), nullable=False, server_default="默认分类")
     # 公告状态 等待审核、审核通过、刊登、下架、删除
-    type = db.Column(db.String(64), nullable=False, server_default="默认状态")
+    status = db.Column(db.String(64), nullable=False, server_default="默认状态")
 
     def __repr__(self):
         return self.title[:64]
