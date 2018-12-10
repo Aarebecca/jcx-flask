@@ -10,10 +10,14 @@ news = Blueprint('news', __name__)
 # psize - 每页条数
 @news.route('list', methods=['GET', 'POST'])
 def get_list():
-    page = request.args.get('page') or "1"
-    psize = request.args.get('psize') or "8"
+    page = int(request.args.get('page') or "1")
+    psize = int(request.args.get('psize') or "8")
+    pno = (page - 1) * psize
     s = SQL()
-    sql = "call `newslist`(" + page + "," + psize + ")"
+    # 补充查询条件
+    condition = " where 1 = 1"
+    sql = "select * from (select * from `news` order by pub_date desc ) tmp" + condition + " limit " \
+          + str(pno) + "," + str(psize)
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 
@@ -23,5 +27,27 @@ def get_list():
 def get_detail():
     newid = request.args.get("id")
     s = SQL()
-    sql = "select * from `news` where id = " + newid
+    condition = " where id = {c_id}".format(c_id=newid)
+    sql = "select * from `news`" + condition
     return jsonify({"status": "ok", "data": s.query(sql)})
+
+
+# 上传新闻
+# 如果发布者权限大于等于管理员 则直接显示
+# 否则需要等待管理员审核新闻后才可显示
+
+@news.route('publish', methods=['GET', 'POST'])
+def rev_news():
+    pass
+
+
+# 修改新闻
+@news.route('edit', methods=['GET', 'POST'])
+def rev_edit():
+    pass
+
+
+# 新闻审批
+@news.route('review', methods=['GET', 'POST'])
+def news_review():
+    pass

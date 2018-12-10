@@ -27,6 +27,15 @@ class Config:
     # 文件上传的位置
     MAX_CONTENT_LENGTH = 8 * 1024 * 1024
     UPLOADED_PHOTOS_DEST = os.path.join(BASE_DIR, 'static/uploads')
+    UPLOADED_NEWS_DEST = os.path.join(BASE_DIR, 'static/uploads/news')
+    UPLOADED_NOTICE_DEST = os.path.join(BASE_DIR, 'static/uploads/notice')
+    UPLOADED_FILE_DEST = os.path.join(BASE_DIR, 'static/uploads/file')
+    ALLOWED_FILE_FORMAT = ('txt',
+                           'pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'
+                           'png', 'jpg', 'jpeg', 'gif')
+
+    # ACCESSTOKEN 生命期  秒
+    ACCESSTOKEN_VALID_TIME = 2 * 60 * 60
 
     # 额外的初始化操作
     @staticmethod

@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.extensions import db
-from app.models import user
+from app.models import user, login
 
 from app.utils import SQL
 

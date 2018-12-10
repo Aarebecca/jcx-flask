@@ -13,6 +13,11 @@ class Notice(db.Model):
     tag = db.Column(db.String(16))
     # 公告通知发布者
     author = db.Column(db.String(256), nullable=False)
+    # 访问控制
+    # 以字符串形式存储的json
+    # 格式 对属权限属于于group的用户或者用户名存在users中的用户开放
+    # {"read":{"group":[],"users":[]},"edit":{"group":[],"users":[]}}
+    authority = db.Column(db.Text)
     # 公告内容
     content = db.Column(db.Text, nullable=False)
     # 阅读量

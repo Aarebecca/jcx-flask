@@ -1,3 +1,5 @@
+生成RSA私钥和公钥，私钥由客户保管，并由管理员存档
+
 初始化数据库
 python manage.py db init
 python manage.py db migrate
