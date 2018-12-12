@@ -9,6 +9,8 @@ class People(db.Model):
     no = db.Column(db.Integer, unique=True)
     # 姓名
     name = db.Column(db.String(64), nullable=False)
+    # 个人照片
+    header = db.Column(db.String(256))
     # 个人主页链接
     homepage = db.Column(db.Text)
     # 年龄

@@ -112,6 +112,9 @@ def rev_file():
         elif obj == "file":
             basepath = Config.UPLOADED_FILE_DEST
             file_url = os.path.join(Config.UPLOADED_BASE_DIR, 'file')
+        elif obj == "person":
+            basepath = Config.UPLOADED_FILE_DEST
+            file_url = os.path.join(Config.UPLOADED_BASE_DIR, 'person')
         else:
             basepath = Config.UPLOADED_TMP_DEST
             file_url = os.path.join(Config.UPLOADED_BASE_DIR, 'tmp')

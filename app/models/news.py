@@ -17,6 +17,8 @@ class News(db.Model):
     album = db.Column(db.String(256))
     # 作者
     author = db.Column(db.String(256), nullable=False)
+    # 发布者ID
+    publisher = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
     # 访问控制
     # 以字符串形式存储的json
     # 格式 对属权限属于于group的用户或者用户名存在users中的用户开放
@@ -30,7 +32,7 @@ class News(db.Model):
     read = db.Column(db.Integer, nullable=False, server_default="0")
     # 新闻类别
     type = db.Column(db.String(64), nullable=False, server_default="默认分类")
-    # 新闻状态 等待审核、审核通过、刊登、下架、删除
+    # 新闻状态 等待审核-pending、审核通过刊登-pass、封存-block、下架、删除-delete
     status = db.Column(db.String(64), nullable=False, server_default="默认状态")
 
     def __repr__(self):

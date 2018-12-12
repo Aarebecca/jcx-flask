@@ -2,12 +2,14 @@ from .news import news
 from .user import users
 from .notice import notice
 from .file import file
+from .szjs import sz
 
 DEFAULT_BLUEPRINT = (
     (news, '/news/'),
     (users, '/user/'),
     (notice, '/notice/'),
-    (file, '/file/')
+    (file, '/file/'),
+    (sz, '/sz/')
 )
 
 

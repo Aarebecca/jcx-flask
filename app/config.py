@@ -33,6 +33,7 @@ class Config:
     UPLOADED_NEWS_DEST = os.path.join(BASE_DIR, UPLOADED_BASE_DIR, 'news')
     UPLOADED_NOTICE_DEST = os.path.join(BASE_DIR, UPLOADED_BASE_DIR, 'notice')
     UPLOADED_FILE_DEST = os.path.join(BASE_DIR, UPLOADED_BASE_DIR, 'file')
+    UPLOADED_PERS_DEST = os.path.join(BASE_DIR, UPLOADED_BASE_DIR, 'person')
     UPLOADED_TMP_DEST = os.path.join(BASE_DIR, UPLOADED_BASE_DIR, 'tmp')
     ALLOWED_FILE_FORMAT = ('.txt',
                            '.pdf', '.doc', '.docx', '.ppt', '.pptx', '.xls', '.xlsx'

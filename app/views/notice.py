@@ -18,12 +18,24 @@ def get_list():
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 
+# 公告详情
+# id
 @notice.route("detail", methods=['GET', 'POST'])
 def get_detail():
     nid = request.args.get("id")
     s = SQL()
     condition = "where id = %s" % nid
     sql = "select `id`,`title`,`pub_date`,`tag`,`author`,`type`,`content`,`read` from `notice` %s" % condition
+
+    # 新闻阅读量+1
+    sqls = [
+        "begin work;",
+        "select `read` from `notice` where `id` = '%s' for update;" % nid,
+        "update `notice` set `read` = `read` + 1 where `id` = '%s';" % nid,
+        "commit work;"
+    ]
+    s.operat_many(sqls)
+
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 

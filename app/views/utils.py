@@ -25,6 +25,15 @@ def create_accesstoken(uid):
     return crypt2
 
 
+# 通过access_token 记录查询ID
+def get_user_id(access_token="*"):
+    s = SQL()
+    res = s.query_value("`id`", "`login`", "where `access_token` = '%s'" % access_token)
+    if not res or len(res) < 1:
+        return None
+    return res[0]
+
+
 # 查询用户权限
 # uid
 # access_token
@@ -153,7 +162,8 @@ def cul_file_hash(fp):
 
 
 # 生成对象访问权限
-def create_obj_ahthority():
+# 用户自定的策略
+def create_obj_ahthority(strategy=None):
     return '{"read":{"identity":[],"users":[]},"edit":{"identity":[],"users":[]}}'
 
 
