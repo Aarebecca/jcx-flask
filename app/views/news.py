@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.utils import SQL
+from .utils import get_user_auth
 from app.models import news
 
 news = Blueprint('news', __name__)
@@ -15,9 +16,9 @@ def get_list():
     pno = (page - 1) * psize
     s = SQL()
     # 补充查询条件
-    condition = " where 1 = 1 and `status` = `valid`"
-    sql = "select * from (select * from `news` order by pub_date desc ) tmp" + condition + " limit " \
-          + str(pno) + "," + str(psize)
+    condition = " where 1 = 1 and `status` = 'valid'"
+    sql = "select `id`,`title`,`pub_date`,`album`,`author`,`type` from " \
+          "(select * from `news` order by pub_date desc ) tmp %s limit %d , %d" % (condition, pno, psize)
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 
@@ -32,9 +33,9 @@ def get_mlist():
     pno = (page - 1) * psize
     s = SQL()
     # 补充查询条件
-    condition = " where 1 = 1 and `status` = `valid`"
-    sql = "select * from (select * from `news` order by pub_date desc ) tmp" + condition + " limit " \
-          + str(pno) + "," + str(psize)
+    condition = "where 1 = 1 and `status` = 'valid'"
+    sql = "select `id`,`title`,`pub_date`,`album`,`author`,`type` from " \
+          "(select * from `news` order by pub_date desc ) tmp %s limit %d , %d" % (condition, pno, psize)
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 
@@ -44,8 +45,9 @@ def get_mlist():
 def get_detail():
     newid = request.args.get("id")
     s = SQL()
-    condition = " where id = {c_id}".format(c_id=newid)
-    sql = "select * from `news`" + condition
+    condition = "where id = %s" % newid
+    sql = "select `id`,`title`,`pub_date`,`abstract`,`content`,`album`,`author`,`read`,`type` from `news` %s" \
+          % condition
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 
@@ -55,10 +57,12 @@ def get_detail():
 # accesstoken
 @news.route('publish', methods=['GET', 'POST'])
 def rev_news():
-    pass
+    access_token = request.form.get("accesstoken")
+
 
 
 # 修改新闻
+# id - 新闻id
 @news.route('edit', methods=['GET', 'POST'])
 def rev_edit():
     pass

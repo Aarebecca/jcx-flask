@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
-from app.utils import SQL, check_mani
+from app.utils import SQL
+from .utils import check_mani
 from app.models import notice
 
 notice = Blueprint('notice', __name__)
@@ -9,11 +10,11 @@ notice = Blueprint('notice', __name__)
 def get_list():
     page = int(request.args.get('page') or "1")
     psize = int(request.args.get('psize') or "8")
-    pno = (page-1)*psize
+    pno = (page - 1) * psize
     s = SQL()
-    condition = " where 1 = 1"
-    sql = "select * from (select * from `notice` order by pub_date desc ) tmp" + condition + " limit "\
-          + str(pno) + "," + str(psize)
+    condition = "where 1 = 1"
+    sql = "select `id`,`pub_date`,`tag`,`title`,`type` from (select * from `notice` order by pub_date desc ) " \
+          "tmp %s limit %d , %d " % (condition, pno, psize)
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 
@@ -21,8 +22,8 @@ def get_list():
 def get_detail():
     nid = request.args.get("id")
     s = SQL()
-    condition = " where id = {c_id}".format(c_id=nid)
-    sql = "select * from `notice`" + condition
+    condition = "where id = %s" % nid
+    sql = "select `id`,`title`,`pub_date`,`tag`,`author`,`type`,`content`,`read` from `notice` %s" % condition
     return jsonify({"status": "ok", "data": s.query(sql)})
 
 

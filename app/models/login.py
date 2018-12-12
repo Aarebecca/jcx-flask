@@ -15,7 +15,7 @@ class Login(db.Model):
     # user_agent
     user_agent = db.Column(db.Text)
     # AccessToken
-    access_token = db.Column(db.Text)
+    access_token = db.Column(db.Text )
     # 操作
     mani = db.Column(db.Text)
 

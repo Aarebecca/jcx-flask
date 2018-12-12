@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from flask_mail import Mail
 from flask_moment import Moment
 from flask_login import LoginManager
-from flask_uploads import UploadSet,IMAGES,configure_uploads,patch_request_class
+from flask_uploads import UploadSet, IMAGES, configure_uploads, patch_request_class
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_ckeditor import CKEditor
 from flask_cache import Cache

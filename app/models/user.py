@@ -13,7 +13,7 @@ class User(db.Model):
     # 密码hash
     password_hash = db.Column(db.String(128), nullable=False)
     # accesstoken 最近登录使用的accesstoken
-    access_token = db.Column(db.Text, unique=True)
+    access_token = db.Column(db.Text)
     # 最近登录时间
     latest_time = db.Column(db.DateTime)
     # 注册时间
