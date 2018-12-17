@@ -29,3 +29,30 @@ class File(db.Model):
 
     def __repr__(self):
         return self.name[:64]
+
+    @staticmethod
+    # 计算文件hash值
+    def cul_file_hash(fp):
+        import hashlib
+        _FILE_SLIM = (100 * 1024 * 1024)  # 100MB
+        md5 = hashlib.md5()
+        f_size = len(fp.read())
+        # 重置文件指针
+        fp.seek(0, 0)
+        if f_size > _FILE_SLIM:
+            while f_size > _FILE_SLIM:
+                md5.update(fp.read(_FILE_SLIM))
+        f_size /= _FILE_SLIM
+        if (f_size > 0) and (f_size <= _FILE_SLIM):
+            md5.update(fp.read())
+        else:
+            md5.update(fp.read())
+        # 重置文件指针
+        fp.seek(0, 0)
+        return md5.hexdigest()
+
+    @staticmethod
+    # 生成对象访问权限
+    # 用户自定的策略
+    def create_obj_ahthority(strategy=None):
+        return '{"read":{"identity":[],"users":[]},"edit":{"identity":[],"users":[]}}'

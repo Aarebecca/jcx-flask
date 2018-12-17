@@ -29,3 +29,79 @@ class User(db.Model):
 
     def __repr__(self):
         return self.nickname[:45]
+
+    @staticmethod
+    # 生成AccessToken
+    # 参数 uid-用户ID
+    def create_accesstoken(uid):
+        import datetime
+        import hashlib
+        import random
+        from app.utils import SQL
+        s = SQL()
+        password_hash = s.query_value("`password_hash`", "`user`", "`id`=" + uid)[0]
+        # 获取当前时间并格式化为 日月年时分秒 如10122018151401
+        time = datetime.datetime.now().strftime('%d%m%Y%H%M%S')
+        # 将时间与用户账号连接 并进行一次MD5散列
+        md5 = hashlib.md5()
+        md5.update((time + uid).encode('utf-8'))  # 注意转码
+        crypt1 = md5.hexdigest()
+
+        # 将crypt1 和 密码的HASH值以及生成的随机数进行一次sha256
+        random.seed()
+        sha256 = hashlib.sha256()
+        sha256.update(str(str(crypt1) + str(password_hash) + str(random.random())).encode('utf-8'))
+        crypt2 = sha256.hexdigest()
+        return crypt2
+
+    @staticmethod
+    # 生成用户权限
+    def create_user_ahthority():
+        return '{"read": [], "edit": [], "pub":[], "approve":[], "delete":[]}'
+
+    @staticmethod
+    # 通过access_token 记录查询ID
+    def get_user_id(access_token="*"):
+        from app.utils import SQL
+        s = SQL()
+        res = s.query_value("`id`", "`login`", "where `access_token` = '%s'" % access_token)
+        if not res or len(res) < 1:
+            return None
+        return res[0]
+
+    @staticmethod
+    # 查询用户权限
+    # uid
+    # access_token
+    def get_user_auth(uid=None, access_token=None):
+        import datetime
+        import json
+        from flask import current_app
+        from app.utils import SQL
+        s = SQL()
+        sql = ""
+        user = None
+        if uid is not None:
+            user = s.query_value("`authority`", "`user`", "`id`=" + uid)
+        # 使用accesstoken 需要验证时效性
+        elif access_token is not None:
+            # 取用户最近一次操作
+            log = s.query_value("`time`,`mani`", "`login`",
+                                "access_token = '%s' order by time desc limit 1;" % access_token)
+            # token无效
+            if not log:
+                print("查询结果为空")
+                return False
+            # 如果是注销 logout 则需要重新登录
+            # 如果access token过期
+            df = log[0] + datetime.timedelta(seconds=current_app.config["ACCESSTOKEN_VALID_TIME"])
+            if log[1] == "logout" or df < datetime.datetime.now():
+                print("accesstoken过期")
+                return False
+            user = s.query_value("`authority`", "`user`", "`access_token`='%s'" % access_token)
+        else:
+            return False
+        # 查询不到结果
+        if not user or len(user) < 1:
+            return False
+        return json.loads(user[0])

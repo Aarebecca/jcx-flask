@@ -39,6 +39,9 @@ class Config:
                            '.pdf', '.doc', '.docx', '.ppt', '.pptx', '.xls', '.xlsx'
                            '.png', '.jpg', '.jpeg', '.gif')
 
+    # 日志文件存储路径
+    LOG_STORE_PATH = os.path.join(BASE_DIR, 'data/log')
+
     # ACCESSTOKEN 生命期  秒
     ACCESSTOKEN_VALID_TIME = 2 * 60 * 60
 

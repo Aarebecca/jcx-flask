@@ -1,6 +1,8 @@
 import math
 import pymysql
 from app.config import ProductionConfig as Pr
+from app.log import Logger
+log = Logger("SQL.log")
 
 
 def custom_paginator(current_page, num_page, max_page):
@@ -29,11 +31,12 @@ class SQL:
                                   port=Pr.SQL_PORT)
 
     # select查询，并将结果格式话为字典
-    def query(self, sql):
+    def query(self, sql, args=None):
         cur = self.db.cursor()
         try:
-            cur.execute(sql)
-            print(sql)
+            cur.execute(sql, args)
+            # print('\033[32m%s' % sql)
+            log.logger.info(sql)
             cur_des = cur.description
             results = cur.fetchall()
             res = []
@@ -55,7 +58,7 @@ class SQL:
         cur = self.db.cursor()
         try:
             sql = "select " + value + " from " + table + " where " + str(condition)
-            print(sql)
+            log.logger.info(sql)
             cur.execute(sql)
             result = cur.fetchall()
             if len(result) > 0:
@@ -71,7 +74,7 @@ class SQL:
         cur = self.db.cursor()
         try:
             cur.execute(sql)
-            print(sql)
+            log.logger.info(sql)
             self.db.commit()
         except Exception as e:
             self.db.rollback()

@@ -1,0 +1,1 @@
+2018-12-13 21:06:09,582 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\notice.py[line:23] - WARNING: invalid literal for int() with base 10: 'asd'

@@ -1,0 +1,6 @@
+2018-12-13 21:15:36,705 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\user.py[line:19] - WARNING: must be str, not int
+2018-12-13 21:52:10,349 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\user.py[line:82] - WARNING: 'NoneType' object has no attribute 'translate'
+2018-12-13 21:53:28,302 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\user.py[line:75] - WARNING: 'NoneType' object has no attribute 'translate'
+2018-12-13 21:54:06,864 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\user.py[line:75] - WARNING: 'UserAgent' object has no attribute 'translate'
+2018-12-13 21:55:23,453 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\user.py[line:75] - WARNING: 'UserAgent' object has no attribute 'translate'
+2018-12-13 21:56:45,924 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\user.py[line:77] - WARNING: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21:56:45.924247, `access_token`=2a11c66510af02d1dbf7bd3a44457b4160ec9770a25f1323' at line 1")

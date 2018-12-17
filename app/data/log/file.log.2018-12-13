@@ -1,0 +1,2 @@
+2018-12-13 22:04:37,699 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\file.py[line:171] - WARNING: 'UserAgent' object has no attribute 'translate'
+2018-12-13 22:06:23,346 - C:\Users\Aaron\Documents\Git\JCX-flask\app\views\file.py[line:171] - WARNING: local variable 'uid' referenced before assignment

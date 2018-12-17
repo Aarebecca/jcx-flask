@@ -1,0 +1,35 @@
+2018-12-13 21:10:26,771 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:39] - INFO: select `id`,`title`,`pub_date`,`album`,`author`,`type` from (select * from `news` order by pub_date desc ) tmp where 1 = 1 and `status` = 'valid' and `type` = 'news' limit 0 , 8
+2018-12-13 21:15:59,566 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`=1
+2018-12-13 21:15:59,573 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:39] - INFO: select * from `user`
+2018-12-13 21:23:44,637 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:39] - INFO: select * from `user`
+2018-12-13 21:23:47,103 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:39] - INFO: select * from `user`
+2018-12-13 21:23:55,301 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `*` from `file` where id='1'
+2018-12-13 21:23:56,436 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `*` from `file` where id='3'
+2018-12-13 21:23:56,437 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `path` from `file` where `id`='3'
+2018-12-13 21:23:56,438 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:77] - INFO: begin work;
+2018-12-13 21:23:56,438 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:77] - INFO: select `download` from `file` where `id` = '3' for update;
+2018-12-13 21:23:56,439 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:77] - INFO: update `file` set `download` = `download` + 1 where `id` = '3';
+2018-12-13 21:23:56,511 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:77] - INFO: commit work;
+2018-12-13 21:24:24,048 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `time`,`mani` from `login` where access_token = 'token' order by time desc limit 1;
+2018-12-13 21:24:29,570 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `time`,`mani` from `login` where access_token = 'token3' order by time desc limit 1;
+2018-12-13 21:46:52,465 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `*` from `file` where id='1'
+2018-12-13 21:53:54,219 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`='1'
+2018-12-13 21:54:06,816 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`='1'
+2018-12-13 21:54:06,828 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`=1
+2018-12-13 21:55:23,436 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`='1'
+2018-12-13 21:55:23,439 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`=1
+2018-12-13 21:56:45,849 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`='1'
+2018-12-13 21:56:45,851 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`=1
+2018-12-13 21:57:25,617 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`='1'
+2018-12-13 21:57:25,619 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `password_hash` from `user` where `id`=1
+2018-12-13 21:57:25,712 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:77] - INFO: update `user` set `latest_time`='2018-12-13 21:57:25.711946', `access_token`='ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e' where `id`='1'
+2018-12-13 21:59:00,731 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `time`,`mani` from `login` where access_token = 'ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e' order by time desc limit 1;
+2018-12-13 21:59:00,732 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `authority` from `user` where `access_token`='ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e'
+2018-12-13 21:59:00,737 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `path` from `file` where `hash`='7c93a363c1d26345ffadeb1a346d4184'
+2018-12-13 22:04:37,535 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `time`,`mani` from `login` where access_token = 'ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e' order by time desc limit 1;
+2018-12-13 22:04:37,535 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `authority` from `user` where `access_token`='ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e'
+2018-12-13 22:04:37,550 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `path` from `file` where `hash`='bff37d3464834e51827cfddbefc7cb4f'
+2018-12-13 22:04:37,559 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `id` from `user` where access_token='ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e'
+2018-12-13 22:06:23,313 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `time`,`mani` from `login` where access_token = 'ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e' order by time desc limit 1;
+2018-12-13 22:06:23,315 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `authority` from `user` where `access_token`='ce1ad846087fff20740e208eb0e8d7a40ba89bfd0ff07858c7f48d5b0a07bb1e'
+2018-12-13 22:06:23,328 - C:\Users\Aaron\Documents\Git\JCX-flask\app\utils.py[line:61] - INFO: select `path` from `file` where `hash`='bff37d3464834e51827cfddbefc7cb4f'
