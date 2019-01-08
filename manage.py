@@ -14,16 +14,16 @@ config_name = os.environ.get('FLASK_CONFIG') or 'default'
 # 生成app
 app = create_app(config_name)
 
-http_server = HTTPServer(WSGIContainer(app))
+#http_server = HTTPServer(WSGIContainer(app))
 
 manager = Manager(app)
 
 manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
-    http_server.listen(5000)
-    IOLoop.instance().start()
-    # manager.run()
+    #http_server.listen(5000)
+    #IOLoop.instance().start()
+    manager.run()
 
 
 

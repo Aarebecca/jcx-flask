@@ -1,0 +1,101 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,a{
+    margin:0;
+    padding:0;
+    color: #444;
+}
+body,button,input,select,textarea,div{
+    box-sizing:border-box;
+    font-size:14px;
+    font-family:'微软雅黑',arial,'Hiragino Sans GB','Microsoft Yahei','宋体',\5b8b\4f53,Tahoma,Arial,Helvetica,STHeiti;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+}
+body,html {
+    width: 100%;
+    height: 100%;
+}
+em{
+    font-style:normal;
+}
+small{
+    font-size:12px;
+}
+ul,ol{
+    list-style:none
+}
+a{
+    text-decoration:none;
+    color: #444;
+}
+legend{
+    color:#000
+}
+fieldset,img{
+    border:0
+}
+button,input,select,textarea{
+    font-size:100%;
+    outline: none;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0
+}
+textarea{
+    resize:vertical
+}
+.left{
+    float:left
+}
+.right{
+    float:right
+}
+.overflow{
+    overflow:hidden
+}
+.hide{
+    display:none
+}
+.block{
+    display:block
+}
+.inline{
+    display:inline
+}
+.error{
+    color:#F00;
+    font-size:12px
+}
+label,button{
+    cursor:pointer
+}
+.clearfix:after{
+    content:'\20';
+    display:block;
+    height:0;
+    clear:both
+}
+.clearfix{
+    zoom:1
+}
+
+body,form{
+    position:relative
+}
+td{
+    text-align:left
+}
+img{
+    border:0
+}
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+}
+.fixed {
+    position: fixed;
+}
+

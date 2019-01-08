@@ -1,0 +1,47 @@
+.tc_num {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 12px;
+}
+
+.pic_list {
+    padding: 6px 0 12px;
+}
+
+.teacher_list li{
+    margin-right: 18px;
+    text-align: center;
+}
+.tc_level {
+    height: 48px;
+    line-height: 48px;
+}
+.tc_level span {
+    font-weight: bold;
+}
+.teacher_list li>a, .top_box img {
+    border: 1px solid #ddd;
+    display: block;
+    padding: 12px; 
+}
+.teacher_list li p {
+    padding-top: 6px;
+}
+
+/* 教师详情 */
+.top_box img {
+    margin-right: 18px;
+}
+.right_info>div {
+    height: 24px;
+    line-height: 24px
+}
+.td_title {
+    font-weight: bold;
+    padding-right: 12px;
+}
+.item_intro {
+    margin-top: 12px;
+}
+.item_intro>div {
+    line-height: 24px;
+}

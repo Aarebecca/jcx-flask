@@ -3,8 +3,10 @@ from .user import users
 from .notice import notice
 from .file import file
 from .szjs import sz
+from .web import web
 
 DEFAULT_BLUEPRINT = (
+    (web, '/'),
     (news, '/news/'),
     (users, '/user/'),
     (notice, '/notice/'),

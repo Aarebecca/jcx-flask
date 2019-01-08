@@ -1,0 +1,125 @@
+
+.gczx {
+    border: 1px solid #ddd;
+    color: #333;
+    width: 500px;
+    height: 262px;
+    margin-right: 24px;
+    padding: 12px;
+}
+
+.left_part {
+    width: 290px;
+}
+.left_part img {
+    width: 100%;
+}
+.left_part a {
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.right_info {
+    width: 170px;
+    height: 230px;
+    line-height: 20px;
+    padding-top: 6px;
+    text-indent: 30px
+}
+
+.for_out {
+    width: 500px;
+}
+.for_out a {
+    width: 240px;
+    height: 120px;
+    display: table;
+    text-align: center;
+    margin-bottom: 12px;
+}
+.for_out a:nth-child(1) {
+    color: #1273c4;
+    border: 3px solid #1273c4;
+}
+.for_out a:nth-child(2) {
+    color: #777ab1;
+    border: 3px solid #777ab1;
+}
+.for_out a:nth-child(3) {
+    color: #356ba7;
+    border: 3px solid #356ba7;
+}
+.for_out a:nth-child(4) {
+    color: #376ba5;
+    border: 3px solid #5e8ec6;
+}
+.for_out a>div {
+    display: table-cell;
+    vertical-align: middle;
+    transition: all .3s ease;
+}
+.for_out a:hover div{
+    transform: scale(1.2)
+}
+.for_out a i {
+    display: block;
+    font-size: 48px;
+}
+
+.info_item {
+    width: 500px;
+}
+.info_title {
+    height: 32px;
+    line-height: 32px;
+    border-left: 3px solid #00a1e9;
+    background: -webkit-linear-gradient(#f5f4ff, #ddd); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#f5f4ff, #ddd); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#f5f4ff, #ddd); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#f5f4ff, #ddd); /* 标准的语法 */
+    padding: 0 12px;
+}
+.info_title a {
+    color: #00a1e9;
+}
+.info_list {
+    padding-top: 12px;
+}
+.info_list li {
+    border-bottom: 1px solid #ddd;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 6px;
+}
+
+.info_list a:hover .news_title{
+    color: #00a1e9;
+}
+.info_list a .news_title {
+    width: 360px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    transition: all .25s ease;
+}
+
+.friend_link li {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    background: -webkit-linear-gradient(#efefef, #dde1e2); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#efefef, #dde1e2); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#efefef, #dde1e2); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#efefef, #dde1e2); /* 标准的语法 */
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 6px;
+    padding: 0 16px;
+}
+.friend_link li a {
+    color: #00a1e9;
+    transition: all .15s ease;
+}
+/* .friend_link li a:hover {
+    color: #2576c8;
+} */
